@@ -31,4 +31,7 @@ RUN \
 
 ADD files/ /
 
-RUN cat /etc/supervisor/plugin-* >> /etc/supervisor/supervisord.conf
+RUN \
+  cat /etc/supervisor/plugin-* \
+    | tee -a /etc/supervisor/supervisord.conf \
+    | nl
